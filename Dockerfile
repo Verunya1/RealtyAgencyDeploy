@@ -2,7 +2,8 @@ FROM eclipse-temurin:19-jdk-alpine
 LABEL authors="vera3"
 VOLUME /tmp
 WORKDIR .
-COPY /build/libs/*.jar app.jar
+ARG JAR_FILE=target/RealtyAgency-0.0.1-SNAPSHOT.jar
+COPY /target/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ENV DATABASE_URL jdbc:postgresql://dpg-ckhbgjmafg7c73956cs0-a.oregon-postgres.render.com:5432/realty_db_v7b3
